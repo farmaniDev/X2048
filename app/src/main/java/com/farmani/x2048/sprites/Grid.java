@@ -12,7 +12,7 @@ public class Grid implements Sprite{
     private int screenWidth, screenHeight;
     private int standardSize;
 
-    private Grid(Resources resources, int screenWidth, int screenHeight, int standardSize) {
+    public Grid(Resources resources, int screenWidth, int screenHeight, int standardSize) {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
         this.standardSize = standardSize;
