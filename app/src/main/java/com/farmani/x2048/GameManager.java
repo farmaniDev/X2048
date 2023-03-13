@@ -16,6 +16,7 @@ public class GameManager extends SurfaceView implements SurfaceHolder.Callback {
     private MainThread thread;
     private Grid grid;
     private int screenWidth, screenHeight, standardSize;
+    private TileManager tileManager;
 
     public GameManager(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -28,6 +29,7 @@ public class GameManager extends SurfaceView implements SurfaceHolder.Callback {
         standardSize = (int) (screenWidth * .90) / 4;
 
         grid = new Grid(getResources(), screenWidth, screenHeight, standardSize);
+        tileManager = new TileManager(getResources(), standardSize, screenWidth, screenHeight);
     }
 
     @Override
@@ -57,7 +59,7 @@ public class GameManager extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void update() {
-
+        tileManager.update();
     }
 
     @Override
@@ -65,5 +67,6 @@ public class GameManager extends SurfaceView implements SurfaceHolder.Callback {
         super.draw(canvas);
         canvas.drawRGB(255, 255, 255);
         grid.draw(canvas);
+        tileManager.draw(canvas);
     }
 }
